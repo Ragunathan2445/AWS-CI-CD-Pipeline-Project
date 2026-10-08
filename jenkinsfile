@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+    stages {
+
+        stage('Checkout') {
+            steps {
+                echo 'Checking out source code...'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Building Docker image...'
+                sh 'docker build -t student-management-app .'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running application test...'
+                sh 'docker run -d --name test-container -p 3000:3000 student-management-app'
+                sh 'sleep 5'
+                sh 'curl http://localhost:3000/health'
+            }
+        }
+        stage('Cleanup') {
+
+            steps {
+                sh 'docker stop test-container || true'
+                sh 'docker rm test-container || true'
+            }
+        }
+    }
+    post {
+        success {
+            echo 'CI pipeline completed successfully!'
+        }
+        failure {
+            echo 'CI pipeline failed.'
+        }
+    }
+}

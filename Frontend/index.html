@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>CloudTrack | Student Portal</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Navigation -->
+
+    <nav class="navbar">
+      <div class="logo">
+        <span class="logo-icon">☁</span>
+        CloudTrack
+      </div>
+
+      <div class="nav-right">
+        <span class="nav-link active"> Dashboard </span>
+
+        <span class="system-status">
+          <span class="status-dot"></span>
+          System Online
+        </span>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+
+    <main class="container">
+      <!-- Hero -->
+
+      <section class="hero">
+        <div>
+          <p class="eyebrow">STUDENT PORTAL</p>
+
+          <h1>
+            Welcome to
+            <span>CloudTrack</span>
+          </h1>
+
+          <p class="hero-text">
+            A simple cloud-ready student platform built with Node.js and
+            deployed using AWS CI/CD.
+          </p>
+        </div>
+
+        <div class="cloud-icon">☁️</div>
+      </section>
+
+      <!-- Statistics -->
+
+      <section class="stats">
+        <div class="stat-card">
+          <div class="stat-icon blue">👨‍🎓</div>
+
+          <div>
+            <p>Total Students</p>
+            <h2 id="studentCount">--</h2>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon purple">📚</div>
+
+          <div>
+            <p>Courses</p>
+            <h2>3</h2>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon green">☁️</div>
+
+          <div>
+            <p>Cloud Status</p>
+            <h2 class="online">Online</h2>
+          </div>
+        </div>
+      </section>
+
+      <!-- Students -->
+
+      <section class="content-card">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">DIRECTORY</p>
+
+            <h2>Students</h2>
+
+            <p>View registered students</p>
+          </div>
+
+          <button class="primary-btn" onclick="loadStudents()">
+            Load Students
+          </button>
+        </div>
+
+        <div id="studentList" class="student-list">
+          <div class="empty-state">
+            <div class="empty-icon">👨‍🎓</div>
+
+            <h3>No students loaded</h3>
+
+            <p>Click "Load Students" to retrieve student information.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Backend Status -->
+
+      <section class="status-card">
+        <div class="status-info">
+          <div class="server-icon">⚡</div>
+
+          <div>
+            <p class="eyebrow">BACKEND SERVICE</p>
+
+            <h3>Node.js API Server</h3>
+
+            <p id="statusMessage">
+              Click the button to check backend connectivity.
+            </p>
+          </div>
+        </div>
+
+        <button class="secondary-btn" onclick="checkBackend()">
+          Check Status
+        </button>
+      </section>
+    </main>
+
+    <!-- Footer -->
+
+    <footer>
+      <p>CloudTrack Student Portal</p>
+
+      <span>•</span>
+
+      <p>Node.js + Express + Docker + AWS CI/CD</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
