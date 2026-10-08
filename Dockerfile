@@ -2,13 +2,13 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-COPY backend/package*.json ./backend/
+COPY Backend/package*.json ./Backend/
 
-RUN cd backend && npm install --omit=dev
+RUN cd Backend && npm install --omit=dev
 
-COPY frontend ./frontend
-COPY backend ./backend
+COPY Frontend ./Frontend
+COPY Backend ./Backend
 
 EXPOSE 3000
 
-CMD ["node", "backend/server.js"]
+CMD ["node", "Backend/server.js"]
